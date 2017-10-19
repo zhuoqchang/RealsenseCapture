@@ -3,8 +3,7 @@
 #include <fstream>
 
 #include <pxcsensemanager.h>
-#include <pxcprojection.h>
-#include <pxcmetadata.h>
+
 
 class MyHandler :public PXCSenseManager::Handler {
 public:
@@ -22,6 +21,7 @@ public:
 	};
 
 	void init() {
+		// need to add input to specify save location
 		int width = 640;
 		int height = 480;
 		float frameRate = 30.0f;
@@ -56,8 +56,11 @@ private:
 
 int main(int argc, char* argv[]) {
 	Realsense rs;
+	// start the recording
 	rs.init();
-	for (int i = 0; i < 1000000; i++) {
+	// wait a long time
+	for (int i = 0; i < 10000000; i++) {
 	}
+	// stop the recording
 	rs.stop();
 }
